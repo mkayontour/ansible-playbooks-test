@@ -1,0 +1,12 @@
+- name: list in awx survey test 
+  hosts: all
+  vars:
+    list: null
+    # List has to be defined in survey as ["item1","item2"]
+  tasks:
+
+    - name: "Debug list"
+      debug:
+        msg: "{{ item }}"
+      with_list: "{{ list }}"
+      when: list is defined
